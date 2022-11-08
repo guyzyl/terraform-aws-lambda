@@ -676,3 +676,9 @@ variable "recreate_missing_package" {
   type        = bool
   default     = true
 }
+
+variable "zip_file_compress_level" {
+  description = "The compression level to use when building the artifacts. Valid values are 0 (no compression) to 9 (maximum compression)."
+  type        = number
+  default     = 0
+}

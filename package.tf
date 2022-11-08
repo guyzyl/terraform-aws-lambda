@@ -65,7 +65,8 @@ resource "null_resource" "archive" {
   provisioner "local-exec" {
     interpreter = [
       local.python, "${path.module}/package.py", "build",
-      "--timestamp", data.external.archive_prepare[0].result.timestamp
+      "--timestamp", data.external.archive_prepare[0].result.timestamp,
+      "--compresslevel", var.zip_file_compress_level
     ]
     command = data.external.archive_prepare[0].result.build_plan_filename
   }
